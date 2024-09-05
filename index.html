@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <!-- displays site properly based on user's device -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!-- add custom css -->
+        <link rel="stylesheet" href="styles.css" />
+        <!-- add google fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap"
+            rel="stylesheet"
+        />
+
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="./assets/images/favicon-32x32.png"
+        />
+
+        <title>Frontend Mentor | Contact form</title>
+
+        <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+        <style>
+            .attribution {
+                font-size: 11px;
+                text-align: center;
+            }
+
+            .attribution a {
+                color: hsl(228, 45%, 44%);
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="root">
+            <div class="card">
+                <h1>Contact Us</h1>
+                <form class="form" id="form">
+                    <div class="input-container">
+                        <label>First name *</label>
+                        <input type="text" name="fname" />
+                        <p class="error" id="fnameerror">
+                            This is a required field
+                        </p>
+                    </div>
+                    <div class="input-container">
+                        <label>Last name *</label>
+                        <input type="text" name="lname" />
+                        <p class="error" id="lnameerror">
+                            This is a required field
+                        </p>
+                    </div>
+                    <div class="input-container fullwidth">
+                        <label>Email *</label>
+                        <input type="text" name="email" />
+                        <p class="error" id="emailerror">
+                            This is a required field
+                        </p>
+                    </div>
+                    <label class="fullwidth">Query Type *</label>
+                    <div class="radiobutton">
+                        <input id="genenq" type="radio" name="query" />
+                        <label for="genenq">General Enquiry</label>
+                    </div>
+                    <div class="radiobutton">
+                        <input id="supenq" type="radio" name="query" />
+                        <label for="supenq">Support Request</label>
+                    </div>
+                    <p class="fullwidth error" id="queryerror">
+                        Please select a query type
+                    </p>
+                    <div class="input-container fullwidth">
+                        <label>Message *</label>
+                        <textarea name="message" rows="5"></textarea>
+                        <p class="error" id="messageerror">
+                            This is a required field
+                        </p>
+                    </div>
+                    <div class="checkbox-container fullwidth">
+                        <input type="checkbox" name="consent" />
+                        <p style="margin: 0">
+                            I consent to being contacted by the team
+                        </p>
+                        <p class="fullwidth error" id="consenterror">
+                            Please give us consent to contact you
+                        </p>
+                    </div>
+
+                    <button
+                        role="button"
+                        type="button"
+                        onclick="sub()"
+                        class="button fullwidth"
+                    >
+                        Submit
+                    </button>
+                </form>
+            </div>
+        </div>
+        <!-- The actual snackbar -->
+        <div id="snackbar">
+            <div class="toast-container">
+                <img src="./assets/images/icon-success-check.svg" />
+                <span>Message sent</span>
+            </div>
+            <p style="margin: 0; padding-top: 4px; font-size: 0.75rem">
+                Thanks for completing the form we'll be in touch soon
+            </p>
+        </div>
+        <script src="./index.js"></script>
+    </body>
+</html>
