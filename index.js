@@ -14,7 +14,7 @@ function showSuccess() {
     }, 3000);
 }
 
-function sub(e) {
+function clearErrors() {
     document
         .querySelectorAll("input")
         .forEach((elem) => elem.classList.remove("error"));
@@ -26,12 +26,13 @@ function sub(e) {
     document
         .querySelectorAll(".show")
         .forEach((elem) => elem.classList.remove("show"));
+}
 
-    let error = false;
-
-    let form = document.getElementById("form");
+function sub(e) {
+    clearErrors();
+    let errorFlag = false;
+    let form = document.getElementById("form").elements;
     const minOneWordRegex = new RegExp("\\b\\w+\\b");
-    form = form.elements;
     const emptyValidatorFields = ["fname", "lname", "message", "query"];
     emptyValidatorFields.forEach((currentElem) => {
         currentElemDOM = form[currentElem];
@@ -40,24 +41,22 @@ function sub(e) {
                 .getElementById(currentElem + "error")
                 .classList.add("show");
             if (currentElem != "query") currentElemDOM.classList.add("error");
-            error = true;
+            errorFlag = true;
         }
     });
     const emailRege = new RegExp("^[\\w\\-\\.]+@([\\w-]+\\.)+[\\w-]{2,}$");
-    currentElem = form["email"];
+    let currentElem = form["email"];
     if (!validator(currentElem.value, emailRege)) {
         document.getElementById("emailerror").classList.add("show");
-
         currentElem.classList.add("error");
-        error = true;
+        errorFlag = true;
     }
     currentElem = form["consent"];
     if (!currentElem.checked) {
         document.getElementById("consenterror").classList.add("show");
-        error = true;
+        errorFlag = true;
     }
-
-    if (!error) {
+    if (!errorFlag) {
         showSuccess();
     }
 }
