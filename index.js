@@ -17,21 +17,24 @@ function showSuccess() {
 function clearErrors() {
     document
         .querySelectorAll("input")
-        .forEach((elem) => elem.classList.remove("error"));
+        .forEach((element) => element.classList.remove("error"));
 
     document
         .querySelectorAll("textarea")
-        .forEach((elem) => elem.classList.remove("error"));
+        .forEach((element) => element.classList.remove("error"));
 
     document
         .querySelectorAll(".show")
-        .forEach((elem) => elem.classList.remove("show"));
+        .forEach((element) => element.classList.remove("show"));
 }
 
-function sub(e) {
+function formSubmit() {
     clearErrors();
     let errorFlag = false;
-    let form = document.getElementById("form").elements;
+    let form = document.getElementById("form")?.elements;
+    if (!form) {
+        return
+    }
     const minOneWordRegex = new RegExp("\\b\\w+\\b");
     const emptyValidatorFields = ["fname", "lname", "message", "query"];
     emptyValidatorFields.forEach((currentElem) => {
@@ -39,21 +42,21 @@ function sub(e) {
         if (!validator(currentElemDOM.value, minOneWordRegex)) {
             document
                 .getElementById(currentElem + "error")
-                .classList.add("show");
-            if (currentElem != "query") currentElemDOM.classList.add("error");
+                ?.classList.add("show");
+            // if (currentElem != "query") currentElemDOM.classList.add("input-error");
             errorFlag = true;
         }
     });
     const emailRege = new RegExp("^[\\w\\-\\.]+@([\\w-]+\\.)+[\\w-]{2,}$");
     let currentElem = form["email"];
     if (!validator(currentElem.value, emailRege)) {
-        document.getElementById("emailerror").classList.add("show");
-        currentElem.classList.add("error");
+        document.getElementById("emailerror")?.classList.add("show");
+        // currentElem.classList.add("input-error");
         errorFlag = true;
     }
     currentElem = form["consent"];
     if (!currentElem.checked) {
-        document.getElementById("consenterror").classList.add("show");
+        document.getElementById("consenterror")?.classList.add("show");
         errorFlag = true;
     }
     if (!errorFlag) {

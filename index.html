@@ -22,71 +22,84 @@
         />
 
         <title>Frontend Mentor | Contact form</title>
-
-        <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-        <style>
-            .attribution {
-                font-size: 11px;
-                text-align: center;
-            }
-
-            .attribution a {
-                color: hsl(228, 45%, 44%);
-            }
-        </style>
     </head>
 
     <body>
         <div class="root">
             <div class="card">
-                <h1>Contact Us</h1>
+                <h1 class="heading">Contact Us</h1>
                 <form class="form" id="form">
                     <div class="input-container">
-                        <label>First name *</label>
+                        <label class="input-label">First name *</label>
                         <input type="text" name="fname" />
                         <p class="error" id="fnameerror">
                             This is a required field
                         </p>
                     </div>
                     <div class="input-container">
-                        <label>Last name *</label>
+                        <label class="input-label">Last name *</label>
                         <input type="text" name="lname" />
                         <p class="error" id="lnameerror">
                             This is a required field
                         </p>
                     </div>
                     <div class="input-container fullwidth">
-                        <label>Email *</label>
+                        <label class="input-label">Email *</label>
                         <input type="text" name="email" />
                         <p class="error" id="emailerror">
                             This is a required field
                         </p>
                     </div>
-                    <label class="fullwidth">Query Type *</label>
-                    <div class="radiobutton">
-                        <input id="genenq" type="radio" name="query" />
-                        <label for="genenq">General Enquiry</label>
+                    <label class="fullwidth input-label">Query Type *</label>
+                    <div class="radio-button">
+                        <input
+                            id="genenq"
+                            type="radio"
+                            class="accent-color-input"
+                            name="query"
+                        />
+                        <label for="genenq" class="input-label"
+                            >General Enquiry</label
+                        >
                     </div>
-                    <div class="radiobutton">
-                        <input id="supenq" type="radio" name="query" />
-                        <label for="supenq">Support Request</label>
+                    <div class="radio-button">
+                        <input
+                            id="supenq"
+                            type="radio"
+                            class="accent-color-input"
+                            name="query"
+                        />
+                        <label for="supenq" class="input-label"
+                            >Support Request</label
+                        >
                     </div>
                     <p class="fullwidth error" id="queryerror">
                         Please select a query type
                     </p>
                     <div class="input-container fullwidth">
-                        <label>Message *</label>
+                        <label class="input-label">Message *</label>
                         <textarea name="message" rows="5"></textarea>
                         <p class="error" id="messageerror">
                             This is a required field
                         </p>
                     </div>
                     <div class="checkbox-container fullwidth">
-                        <input type="checkbox" name="consent" />
-                        <p style="margin: 0">
-                            I consent to being contacted by the team
-                        </p>
-                        <p class="fullwidth error" id="consenterror">
+                        <div>
+                            <input
+                                type="checkbox"
+                                class="accent-color-input"
+                                name="consent"
+                            />
+                            <span style="margin: 0">
+                                I consent to being contacted by the team
+                            </span>
+                        </div>
+
+                        <p
+                            class="fullwidth error"
+                            id="consenterror"
+                            class="consenterror"
+                        >
                             Please give us consent to contact you
                         </p>
                     </div>
@@ -94,7 +107,7 @@
                     <button
                         role="button"
                         type="button"
-                        onclick="sub()"
+                        onclick="formSubmit()"
                         class="button fullwidth"
                     >
                         Submit

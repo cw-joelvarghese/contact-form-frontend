@@ -6,7 +6,7 @@
     --white: hsl(0, 0%, 100%);
 }
 
-#consenterror {
+.consenterror {
     width: 100%;
 }
 
@@ -16,19 +16,15 @@ body {
     font-family: "Karla", sans-serif;
 }
 
-label {
+.input-label {
     font-size: 16px;
 }
 
-h1 {
+.heading {
     margin: 0;
 }
 
-input[type="radio"] {
-    accent-color: var(--input-active-color);
-}
-
-input[type="checkbox"] {
+.accent-color-input {
     accent-color: var(--input-active-color);
 }
 
@@ -68,8 +64,8 @@ input[type="checkbox"] {
 }
 
 .checkbox-container {
-    display: flex;
-    justify-items: flex-start;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
     column-gap: 10px;
     padding: 10px 0;
     flex-wrap: wrap;
@@ -98,7 +94,7 @@ input[type="checkbox"] {
     border: 2px solid var(--input-active-color);
 }
 
-.radiobutton {
+.radio-button {
     padding: 12px 10px;
     border-radius: 5px;
     border: 1px solid var(--input-border-color);
@@ -109,7 +105,7 @@ input[type="checkbox"] {
 }
 
 /* Change background color of parent div when radio button is checked */
-.radiobutton:has(> input[type="radio"]:checked) {
+.radio-button:has(> input[type="radio"]:checked) {
     background-color: var(--input-active-light-color);
     border: 1px solid var(--input-active-color);
 }
@@ -120,12 +116,12 @@ input[type="checkbox"] {
     display: none;
 }
 
-.error.show {
+.show {
     display: block;
     margin: 0;
 }
 
-.radiobutton > input {
+.radio-button > input {
     margin: 0;
     margin-right: 5px;
 }
